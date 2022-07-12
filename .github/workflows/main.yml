@@ -16,6 +16,8 @@ jobs:
       - uses: azure/docker-login@v1
         with:
            login-server: knowledgefactory.azurecr.io
+           username: knowledgefactory
+           password: =golH6g3AmukRmhlVNbYjSiu4YyeBpBB
       - run: |
           docker build . -t knowledgefactory.azurecr.io/knowledgefactory:${{ github.sha }}
           docker push knowledgefactory.azurecr.io/knowledgefactory:${{ github.sha }}
