@@ -16,8 +16,6 @@ jobs:
       - uses: azure/docker-login@v1
         with:
            login-server: ${{ secrets.ACR_ENDPOINT }}
-           username: ${{ secrets.ACR_USERNAME }}
-           password: ${{ secrets.ACR_PASSWORD }}
       - run: |
-          docker build . -t ${{ secrets.ACR_ENDPOINT }}/knowledgefactory:${{ github.sha }}
-          docker push ${{ secrets.ACR_ENDPOINT }}/knowledgefactory:${{ github.sha }}
+          docker build . -t knowledgefactory.azurecr.io/knowledgefactory:${{ github.sha }}
+          docker push knowledgefactory.azurecr.io/knowledgefactory:${{ github.sha }}
